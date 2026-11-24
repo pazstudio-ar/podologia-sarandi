@@ -349,7 +349,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   elegir(0);
 
   var dias=[['D','Domingo',null],['L','Lunes',[8,19.5]],['M','Martes',[9,18.5]],['M','Miércoles',[8.5,19.5]],['J','Jueves',null],['V','Viernes',[8,19]],['S','Sábado',[9,17]]];
-  function f(h){var m=Math.round((h%1)*60);return Math.floor(h)+(m?':'+(m<10?'0':'')+m:'')}
+  function f(h){var m=Math.round((h%1)*60),H=Math.floor(h);return (H<10?'0':'')+H+':'+(m<10?'0':'')+m}
   var ahora=new Date(),hoy=ahora.getDay(),hr=ahora.getHours()+ahora.getMinutes()/60,sem=document.getElementById('semana');
   [1,2,3,4,5,6,0].forEach(function(i){
     var d=dias[i],li=document.createElement('li');
