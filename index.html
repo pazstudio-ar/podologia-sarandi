@@ -70,7 +70,7 @@ section{padding:80px 0}
 /* huellas de calor */
 .huellas{position:relative;display:grid;place-items:center}
 .huellas svg{width:min(100%,430px);height:auto;overflow:visible}
-.huellas .pie{animation:latido 4.5s ease-in-out infinite;transform-origin:center}
+.huellas .pie{animation:latido 4.5s ease-in-out infinite}
 .huellas .pie.der{animation-delay:2.25s}
 @keyframes latido{0%,100%{opacity:.82}50%{opacity:1}}
 .huellas figcaption{position:absolute;bottom:4%;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;background:var(--blanco);font-size:.85rem;font-weight:600;white-space:nowrap;box-shadow:0 10px 30px -18px rgba(34,26,63,.5)}
@@ -176,20 +176,22 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
           <radialGradient id="g-ante" cx="45%" cy="50%" r="60%"><stop offset="0" stop-color="#F28A3E"/><stop offset=".35" stop-color="#F7C948"/><stop offset=".65" stop-color="#9AD36A"/><stop offset="1" stop-color="#2BB7C4" stop-opacity="0"/></radialGradient>
           <radialGradient id="g-medio" cx="50%" cy="50%" r="60%"><stop offset="0" stop-color="#9AD36A"/><stop offset=".6" stop-color="#2BB7C4"/><stop offset="1" stop-color="#2BB7C4" stop-opacity="0"/></radialGradient>
           <radialGradient id="g-dedo" cx="50%" cy="50%" r="55%"><stop offset="0" stop-color="#F7C948"/><stop offset=".55" stop-color="#9AD36A"/><stop offset="1" stop-color="#2BB7C4" stop-opacity="0"/></radialGradient>
-          <filter id="suave" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7"/></filter>
+          <filter id="suave" filterUnits="userSpaceOnUse" x="0" y="0" width="400" height="460"><feGaussianBlur stdDeviation="7"/></filter>
           <g id="pie">
-            <ellipse cx="70" cy="330" rx="46" ry="56" fill="url(#g-talon)"/>
-            <ellipse cx="62" cy="240" rx="30" ry="58" fill="url(#g-medio)"/>
-            <ellipse cx="78" cy="150" rx="60" ry="46" fill="url(#g-ante)"/>
-            <ellipse cx="40" cy="82" rx="20" ry="24" fill="url(#g-dedo)"/>
-            <ellipse cx="78" cy="72" rx="14" ry="16" fill="url(#g-dedo)"/>
-            <ellipse cx="104" cy="80" rx="12" ry="14" fill="url(#g-dedo)"/>
-            <ellipse cx="124" cy="94" rx="11" ry="12" fill="url(#g-dedo)"/>
-            <ellipse cx="139" cy="114" rx="10" ry="11" fill="url(#g-dedo)"/>
+            <ellipse cx="80" cy="328" rx="50" ry="60" fill="url(#g-talon)"/>
+            <ellipse cx="104" cy="242" rx="32" ry="74" fill="url(#g-medio)"/>
+            <ellipse cx="84" cy="152" rx="66" ry="46" fill="url(#g-ante)"/>
+            <ellipse cx="44" cy="92" rx="21" ry="25" fill="url(#g-dedo)"/>
+            <ellipse cx="82" cy="80" rx="14" ry="17" fill="url(#g-dedo)"/>
+            <ellipse cx="108" cy="88" rx="13" ry="15" fill="url(#g-dedo)"/>
+            <ellipse cx="128" cy="102" rx="11" ry="13" fill="url(#g-dedo)"/>
+            <ellipse cx="144" cy="122" rx="10" ry="12" fill="url(#g-dedo)"/>
           </g>
         </defs>
-        <g class="pie izq" filter="url(#suave)" transform="translate(212 20) scale(-1 1)"><use href="#pie"/></g>
-        <g class="pie der" filter="url(#suave)" transform="translate(206 20)"><use href="#pie"/></g>
+        <g filter="url(#suave)">
+          <use class="pie izq" href="#pie" transform="translate(196 14) scale(-1 1)"/>
+          <use class="pie der" href="#pie" transform="translate(204 14)"/>
+        </g>
       </svg>
       <figcaption>Menos apoyo <span aria-hidden="true"></span> Más apoyo</figcaption>
     </figure>
