@@ -151,10 +151,20 @@ legend{margin-bottom:8px}
 /* dónde */
 .donde .caja{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:36px;border-radius:32px;background:var(--blanco)}
 @media(max-width:880px){.donde .caja{grid-template-columns:minmax(0,1fr);gap:22px;padding:26px}}
-table{width:100%;border-collapse:collapse}
-th,td{padding:12px 0;border-bottom:1px solid var(--linea);text-align:left}
-th{font-weight:600}
-tr.hoy th,tr.hoy td{color:var(--calor-5);font-weight:700}
+.estado-hoy{display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;padding:9px 16px;border-radius:999px;background:var(--fondo);font-weight:700}
+.estado-hoy i{width:10px;height:10px;border-radius:50%;background:#2E9E6B;box-shadow:0 0 0 4px rgba(46,158,107,.18)}
+.estado-hoy.cerrado i{background:var(--gris);box-shadow:none}
+.semana{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin:0;padding:0;list-style:none}
+.semana li{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 4px;border-radius:16px;background:var(--fondo);text-align:center}
+.semana b{font:800 1.05rem var(--h)}
+.semana span{font-size:.8rem;line-height:1.25;color:var(--gris)}
+.semana li.no{opacity:.45}
+.semana li.hoy{background:var(--tinta);color:#fff}
+.semana li.hoy span{color:#D9D3EE}
+@media(max-width:420px){.semana{gap:4px}.semana li{padding:12px 2px}.semana span{font-size:.72rem}}
+.mapa{margin-top:26px;border-radius:22px;overflow:hidden;aspect-ratio:16/10;background:var(--lila)}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+.donde .caja{grid-template-columns:1fr 1.1fr;align-items:start}
 footer{padding:10px 0 40px;color:var(--gris);font-size:.92rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 </style>
@@ -286,8 +296,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         <h2>Dónde atiendo</h2>
         <p class="intro">Pasaje Bruselas 3540, Sarandí.</p>
         <a class="btn btn-borde" href="https://www.google.com/maps/search/?api=1&query=Podolog%C3%ADa+UBA+Sarand%C3%AD+Bruselas+3540" target="_blank" rel="noopener">Cómo llegar</a>
+        <div class="mapa"><iframe src="https://www.google.com/maps?q=Pasaje+Bruselas+3540,+Sarand%C3%AD,+Buenos+Aires&z=16&output=embed" title="Mapa: Pasaje Bruselas 3540, Sarandí" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
       </div>
-      <table aria-label="Horarios"><tbody id="horarios"></tbody></table>
+      <div>
+        <h2>Cuándo</h2>
+        <p class="intro">Con turno previo por WhatsApp.</p>
+        <p class="estado-hoy" id="estado-hoy"><i></i><span></span></p>
+        <ul class="semana" id="semana" aria-label="Horarios de la semana"></ul>
+      </div>
     </div>
   </div>
 </section>
@@ -332,10 +348,22 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   });
   elegir(0);
 
-  var hoy=new Date().getDay(),tb=document.getElementById('horarios');
-  [['Lunes y miércoles','8 a 19:30 h',hoy===1||hoy===3],['Martes','9 a 18:30 h',hoy===2],['Viernes','8 a 19 h',hoy===5],['Sábados','9 a 17 h',hoy===6],['Jueves y domingos','Cerrado',hoy===4||hoy===0]].forEach(function(r){
-    var tr=document.createElement('tr');if(r[2])tr.className='hoy';tr.innerHTML='<th>'+r[0]+'</th><td>'+r[1]+'</td>';tb.appendChild(tr);
+  var dias=[['D','Domingo',null],['L','Lunes',[8,19.5]],['M','Martes',[9,18.5]],['M','Miércoles',[8.5,19.5]],['J','Jueves',null],['V','Viernes',[8,19]],['S','Sábado',[9,17]]];
+  function f(h){var m=Math.round((h%1)*60);return Math.floor(h)+(m?':'+(m<10?'0':'')+m:'')}
+  var ahora=new Date(),hoy=ahora.getDay(),hr=ahora.getHours()+ahora.getMinutes()/60,sem=document.getElementById('semana');
+  [1,2,3,4,5,6,0].forEach(function(i){
+    var d=dias[i],li=document.createElement('li');
+    if(!d[2])li.className='no';if(i===hoy)li.className+=' hoy';
+    li.setAttribute('aria-label',d[1]+': '+(d[2]?f(d[2][0])+' a '+f(d[2][1])+' h':'cerrado'));
+    li.innerHTML='<b aria-hidden="true">'+d[0]+'</b><span aria-hidden="true">'+(d[2]?f(d[2][0])+'<br>a<br>'+f(d[2][1]):'—')+'</span>';
+    sem.appendChild(li);
   });
+  var eh=document.getElementById('estado-hoy'),h=dias[hoy][2],txt;
+  if(h&&hr>=h[0]&&hr<h[1]){txt='Hoy abierto hasta las '+f(h[1])+' h'}
+  else{eh.classList.add('cerrado');var k=hoy,n=0;
+    if(h&&hr<h[0]){txt='Hoy abre a las '+f(h[0])+' h'}
+    else{do{k=(k+1)%7;n++}while(!dias[k][2]&&n<7);txt='Cerrado ahora · abre '+(n===1?'mañana':'el '+dias[k][1].toLowerCase())+' a las '+f(dias[k][2][0])+' h'}}
+  eh.querySelector('span').textContent=txt;
   document.getElementById('form-turno').addEventListener('submit',function(e){
     e.preventDefault();
     var m=document.querySelector('input[name=motivo]:checked').value,n=document.getElementById('nombre').value.trim(),q=document.getElementById('quien').value,c=document.getElementById('cuando').value;
