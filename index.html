@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Podología Sarandí · Lic. Andrea · Uñas encarnadas, plantillas y estudio de pisada</title>
+<meta name="description" content="Podología en Sarandí, Avellaneda. Uñas encarnadas, callos, verrugas plantares, plantillas a medida y estudio computarizado de la pisada. Turnos por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Idea: la huella del estudio de pisada. La web lee tus pies como lo hace el escáner del consultorio. */
+:root{
+  --fondo:#F6F7FB;
+  --blanco:#FFFFFF;
+  --azul:#22346B;
+  --azul-osc:#18264F;
+  --cielo:#E6ECF8;
+  --sol:#F2C14E;
+  --texto:#1C2333;
+  --gris:#5B6479;
+  --linea:#DCE2EE;
+  --h:"Outfit",system-ui,sans-serif;
+  --f:"Source Sans 3",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--fondo);color:var(--texto);font:400 1.09rem/1.6 var(--f);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select{font:inherit}
+:focus-visible{outline:3px solid var(--sol);outline-offset:2px}
+.wrap{width:min(1080px,100% - 36px);margin-inline:auto}
+h1,h2,h3{font-family:var(--h);line-height:1.08;margin:0;color:var(--azul-osc)}
+h2{font-size:clamp(1.9rem,4.4vw,2.6rem);font-weight:700;letter-spacing:-.01em}
+.intro{margin:10px 0 28px;color:var(--gris);max-width:56ch}
+section{padding:66px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border:2px solid var(--azul);background:var(--azul);color:#fff;font-weight:700;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--azul-osc);border-color:var(--azul-osc)}
+.btn svg{width:22px;height:22px;flex:none}
+.btn-claro{background:transparent;color:var(--azul)}
+.btn-claro:hover{background:var(--cielo)}
+
+/* barra */
+.barra{background:var(--blanco);border-bottom:1px solid var(--linea)}
+.barra .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px}
+.marca{text-decoration:none;font-family:var(--h);font-weight:700;color:var(--azul-osc);line-height:1.15}
+.marca small{display:block;font:600 .82rem var(--f);color:var(--gris)}
+.barra a.wa{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:var(--cielo);color:var(--azul)}
+.barra a.wa svg{width:22px;height:22px}
+
+/* portada */
+.portada{background:var(--blanco);padding:40px 0 0;overflow:hidden}
+.portada .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}
+@media(max-width:860px){.portada .wrap{grid-template-columns:minmax(0,1fr);gap:28px}}
+.portada .texto{padding-bottom:56px}
+@media(max-width:860px){.portada .texto{padding-bottom:0}}
+.portada h1{font-size:clamp(2.6rem,7vw,4.4rem);font-weight:700;letter-spacing:-.02em}
+.portada p{margin:18px 0 0;font-size:1.18rem;color:var(--gris);max-width:44ch}
+.acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.datos{display:flex;flex-wrap:wrap;gap:6px 18px;margin:22px 0 0;padding:0;list-style:none;color:var(--gris);font-size:.98rem}
+.datos b{color:var(--texto)}
+.foto-portada img{width:100%;aspect-ratio:4/5;object-fit:cover}
+@media(max-width:860px){.foto-portada img{aspect-ratio:4/3}}
+
+/* qué atiende */
+.trat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--azul)}
+@media(max-width:860px){.trat{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.trat{grid-template-columns:1fr}}
+.trat article{padding:22px 22px 24px 0;border-bottom:1px solid var(--linea)}
+.trat h3{font-size:1.25rem;font-weight:600}
+.trat p{margin:6px 0 0;color:var(--gris);font-size:1rem}
+
+/* estudio de pisada */
+.pisada{background:var(--azul-osc);color:#fff}
+.pisada h2{color:#fff}
+.pisada .intro{color:#C8D2EA}
+.pisada .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-top:8px}
+@media(max-width:760px){.pisada .grid{grid-template-columns:1fr 1fr}.pisada .grid img:first-child{grid-column:1 / span 2}}
+.pisada .grid img{width:100%;aspect-ratio:1;object-fit:cover}
+.pisada .pasos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:34px 0 0;padding:0;list-style:none;counter-reset:p}
+@media(max-width:760px){.pisada .pasos{grid-template-columns:1fr}}
+.pisada .pasos li{counter-increment:p;border-top:2px solid var(--sol);padding-top:14px;color:#DCE3F3}
+.pisada .pasos li::before{content:counter(p);display:block;font:700 1.5rem var(--h);color:var(--sol)}
+.pisada .pasos b{display:block;color:#fff;font-family:var(--h);font-size:1.12rem;font-weight:600}
+
+/* reseñas */
+.res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media(max-width:860px){.res{grid-template-columns:1fr}}
+.res figure{margin:0;padding:22px;background:var(--blanco);border-left:4px solid var(--sol)}
+.res blockquote{margin:0}
+.res figcaption{margin-top:12px;color:var(--gris);font-size:.93rem;font-weight:600}
+
+/* turno */
+.turno .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
+@media(max-width:860px){.turno .wrap{grid-template-columns:minmax(0,1fr);gap:6px}}
+form{display:grid;gap:14px;background:var(--blanco);padding:24px;border:1px solid var(--linea)}
+label,legend{display:grid;gap:6px;font-weight:700;font-size:.95rem}
+input,select{width:100%;min-width:0;min-height:50px;padding:0 14px;border:2px solid var(--linea);background:#fff;color:var(--texto)}
+input:focus,select:focus{outline:none;border-color:var(--azul)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{display:block;position:relative;font-weight:600}
+.chips input{position:absolute;width:1px;height:1px;min-height:0;padding:0;opacity:0;pointer-events:none}
+.chips span{display:inline-block;padding:9px 13px;border:2px solid var(--linea);cursor:pointer}
+.chips input:checked+span{background:var(--azul);border-color:var(--azul);color:#fff}
+.chips input:focus-visible+span{outline:3px solid var(--sol);outline-offset:2px}
+
+/* dónde */
+.donde{background:var(--blanco)}
+.donde .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:860px){.donde .wrap{grid-template-columns:minmax(0,1fr);gap:24px}}
+table{width:100%;border-collapse:collapse}
+th,td{padding:11px 0;border-bottom:1px solid var(--linea);text-align:left}
+th{font-weight:600}
+tr.hoy th,tr.hoy td{color:var(--azul);font-weight:700}
+footer{padding:26px 0 34px;color:var(--gris);font-size:.92rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div class="wrap">
+    <a class="marca" href="#">Podología Sarandí<small>Lic. Andrea · Podóloga UBA</small></a>
+    <a class="wa" href="https://wa.me/5491130372448" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.04 3C8.9 3 3.1 8.78 3.1 15.9c0 2.28.6 4.5 1.73 6.45L3 29l6.83-1.79a12.9 12.9 0 0 0 6.2 1.58h.01c7.13 0 12.93-5.79 12.93-12.9S23.17 3 16.04 3Zm0 23.6h-.01a10.7 10.7 0 0 1-5.46-1.5l-.39-.23-4.05 1.06 1.08-3.95-.26-.4a10.66 10.66 0 0 1-1.64-5.68c0-5.9 4.82-10.71 10.74-10.71 5.92 0 10.73 4.8 10.73 10.71 0 5.9-4.82 10.7-10.74 10.7Zm5.89-8.02c-.32-.16-1.91-.94-2.2-1.05-.3-.1-.51-.16-.73.16-.21.32-.83 1.05-1.02 1.26-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.21 0-.56.08-.86.4-.29.32-1.12 1.1-1.12 2.68 0 1.58 1.15 3.1 1.31 3.32.16.21 2.26 3.44 5.47 4.83.77.33 1.36.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.91-.78 2.18-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.61-.37Z"/></svg></a>
+  </div>
+</header>
+
+<section class="portada">
+  <div class="wrap">
+    <div class="texto">
+      <h1>Salí del consultorio caminando sin dolor.</h1>
+      <p>Uñas encarnadas, callos, verrugas plantares y plantillas a medida, con una podóloga que te explica todo y sigue tu tratamiento hasta el final.</p>
+      <div class="acciones">
+        <a class="btn" href="#turno"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.04 3C8.9 3 3.1 8.78 3.1 15.9c0 2.28.6 4.5 1.73 6.45L3 29l6.83-1.79a12.9 12.9 0 0 0 6.2 1.58h.01c7.13 0 12.93-5.79 12.93-12.9S23.17 3 16.04 3Zm0 23.6h-.01a10.7 10.7 0 0 1-5.46-1.5l-.39-.23-4.05 1.06 1.08-3.95-.26-.4a10.66 10.66 0 0 1-1.64-5.68c0-5.9 4.82-10.71 10.74-10.71 5.92 0 10.73 4.8 10.73 10.71 0 5.9-4.82 10.7-10.74 10.7Zm5.89-8.02c-.32-.16-1.91-.94-2.2-1.05-.3-.1-.51-.16-.73.16-.21.32-.83 1.05-1.02 1.26-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.21 0-.56.08-.86.4-.29.32-1.12 1.1-1.12 2.68 0 1.58 1.15 3.1 1.31 3.32.16.21 2.26 3.44 5.47 4.83.77.33 1.36.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.91-.78 2.18-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.61-.37Z"/></svg>Pedir turno</a>
+        <a class="btn btn-claro" href="#pisada">Estudio de la pisada</a>
+      </div>
+      <ul class="datos">
+        <li><b>Pje. Bruselas 3540</b>, Sarandí</li>
+        <li>Atiende chicos y adultos</li>
+      </ul>
+    </div>
+    <div class="foto-portada">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T2wEQLppsQfxbZBNkuozeXOMaKjLQFaf5qugFIv5aBTKv_XBk6aMsbcvMs8t-Xmui2dn9O0tepB2nBf_SZyiUC6uLoSNJM664IMOAhQSIVXMt9d6cExGTaIiPtJqygWhNflaM7=w800-h1000-k-no" alt="Cuidado de los pies en el consultorio">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Qué atiendo</h2>
+    <p class="intro">Cada consulta empieza con una revisión y una explicación clara de lo que tenés y cómo lo vamos a tratar.</p>
+    <div class="trat">
+      <article><h3>Uñas encarnadas</h3><p>Aliviamos el dolor desde la primera sesión y hacemos seguimiento para que no vuelvan a crecer mal.</p></article>
+      <article><h3>Callos y durezas</h3><p>Limpieza y tratamiento para que vuelvas a usar tu calzado sin molestias.</p></article>
+      <article><h3>Verrugas plantares</h3><p>Tratamiento con control en cada sesión hasta resolverlas por completo.</p></article>
+      <article><h3>Plantillas a medida</h3><p>Hechas según tu pisada, para mejorar el apoyo y prevenir dolores.</p></article>
+      <article><h3>Estudio de la pisada</h3><p>Análisis computarizado de cómo apoyás el pie al pararte y al caminar.</p></article>
+      <article><h3>Podología para chicos</h3><p>Con paciencia y explicándoles a ellos también cómo cuidarse los pies.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="pisada" id="pisada">
+  <div class="wrap">
+    <h2>Estudio computarizado de la pisada</h2>
+    <p class="intro">Un escáner muestra en pantalla cómo se reparte el peso en tus pies. Con ese mapa armamos plantillas a tu medida.</p>
+    <div class="grid">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Qau1cb5vgh30B2aUfRMP05Uu_xvtQK_FTkMvR0kFSxlGB-LaFYvzvAHOQYywEf68HUZPT_d_Sgw0iPUANRqrTtCYQQMBx-1AARTznth2guMjoC10__-1Q2MxafRAV-WRPQZ-PKq6WdRDUp=w800-h800-k-no" alt="Mapa de presiones de la pisada en la pantalla" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TDu-6bdMB0ViNmFbHGeJ6P2pJBfuT-E4fsu-nrjo5XT8gyPIL0jIJqct1qHdBFXEzSpjRiRNpdA9gxy7r9ZuUkj4mCc7SzNtvyGELwOvHiZwQTygBowNRQPnPhEjW49htS8EoEV1HkDYU=w600-h600-k-no" alt="Imagen de las plantas de los pies en el escáner" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SIDJXwKxwj9nWCEKWLpDagNfV_sCy3D8gc7B-9VoRvVMcL9MECw22IUmbo9TY7t7fp5Oe4hH3hHsyYIchHbpUishaDUMBY0CzJayzn0vjQKaX32EuOSokCBhW1_LyXnxo8pHMr6p3Jqp2m=w600-h600-k-no" alt="Plantillas hechas a medida" loading="lazy">
+    </div>
+    <ol class="pasos">
+      <li><b>Te parás en el escáner</b>Descalzo, unos segundos. No duele ni molesta.</li>
+      <li><b>Vemos tu mapa de apoyo</b>Te muestro en la pantalla dónde cargás más peso.</li>
+      <li><b>Hacemos tus plantillas</b>A medida, según lo que mostró el estudio.</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Lo que cuentan los pacientes</h2>
+    <p class="intro">4,9 de 5 en Google, con 65 reseñas.</p>
+    <div class="res">
+      <figure><blockquote>“Desde que entrás hasta que te vas te explica todo. Fui con mucho dolor en las uñas y me fui súper aliviada.”</blockquote><figcaption>Sofía M., en Google</figcaption></figure>
+      <figure><blockquote>“Excelente atención de Andrea, muy clara y predispuesta con las dudas que tuve. Seguiré atendiéndome con ella.”</blockquote><figcaption>Vanesa M., en Google</figcaption></figure>
+      <figure><blockquote>“Fue cuidadosa con mi nene, explicándole hasta cómo debe cortarse las uñas.”</blockquote><figcaption>Milo A., en Google</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="turno" id="turno" style="padding-top:0">
+  <div class="wrap">
+    <div>
+      <h2>Pedí tu turno</h2>
+      <p class="intro">Contame qué te pasa y cuándo te queda cómodo. Te llega el mensaje armado por WhatsApp y te confirmo el día y la hora.</p>
+    </div>
+    <form id="form-turno">
+      <fieldset>
+        <legend>¿Por qué consultás?</legend>
+        <div class="chips">
+          <label><input type="radio" name="motivo" value="uñas encarnadas" checked><span>Uñas encarnadas</span></label>
+          <label><input type="radio" name="motivo" value="callos y durezas"><span>Callos y durezas</span></label>
+          <label><input type="radio" name="motivo" value="una verruga plantar"><span>Verruga plantar</span></label>
+          <label><input type="radio" name="motivo" value="el estudio de la pisada y plantillas"><span>Pisada y plantillas</span></label>
+          <label><input type="radio" name="motivo" value="una consulta general"><span>Consulta general</span></label>
+        </div>
+      </fieldset>
+      <label>Tu nombre<input id="nombre" autocomplete="given-name" placeholder="Ej.: Laura"></label>
+      <label>¿Para quién es el turno?
+        <select id="quien"><option value="para mí">Para mí</option><option value="para mi hijo o hija">Para mi hijo o hija</option><option value="para un familiar">Para un familiar</option></select>
+      </label>
+      <label>¿Cuándo te queda mejor?
+        <select id="cuando"><option>a la mañana</option><option>a la tarde</option><option>el sábado</option><option>lo antes posible</option></select>
+      </label>
+      <button class="btn" type="submit"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.04 3C8.9 3 3.1 8.78 3.1 15.9c0 2.28.6 4.5 1.73 6.45L3 29l6.83-1.79a12.9 12.9 0 0 0 6.2 1.58h.01c7.13 0 12.93-5.79 12.93-12.9S23.17 3 16.04 3Zm0 23.6h-.01a10.7 10.7 0 0 1-5.46-1.5l-.39-.23-4.05 1.06 1.08-3.95-.26-.4a10.66 10.66 0 0 1-1.64-5.68c0-5.9 4.82-10.71 10.74-10.71 5.92 0 10.73 4.8 10.73 10.71 0 5.9-4.82 10.7-10.74 10.7Zm5.89-8.02c-.32-.16-1.91-.94-2.2-1.05-.3-.1-.51-.16-.73.16-.21.32-.83 1.05-1.02 1.26-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.73-1.75-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.21 0-.56.08-.86.4-.29.32-1.12 1.1-1.12 2.68 0 1.58 1.15 3.1 1.31 3.32.16.21 2.26 3.44 5.47 4.83.77.33 1.36.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.91-.78 2.18-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.61-.37Z"/></svg>Pedir turno por WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<section class="donde">
+  <div class="wrap">
+    <div>
+      <h2>Dónde atiendo</h2>
+      <p class="intro">Pasaje Bruselas 3540, Sarandí, Avellaneda.</p>
+      <p><a class="btn btn-claro" href="https://www.google.com/maps/search/?api=1&query=Podolog%C3%ADa+UBA+Sarand%C3%AD+Bruselas+3540" target="_blank" rel="noopener">Cómo llegar</a></p>
+    </div>
+    <div><table aria-label="Horarios"><tbody id="horarios"></tbody></table></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Podología Sarandí · Lic. Andrea</span>
+    <span>Muestra hecha por <a href="https://pazstudio.com.ar">Paz Studio</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var hoy=new Date().getDay(), tb=document.getElementById('horarios');
+  [['Lunes y miércoles','8 a 19:30 h',hoy===1||hoy===3],['Martes','9 a 18:30 h',hoy===2],['Viernes','8 a 19 h',hoy===5],['Sábados','9 a 17 h',hoy===6],['Jueves y domingos','Cerrado',hoy===4||hoy===0]].forEach(function(r){
+    var tr=document.createElement('tr');if(r[2])tr.className='hoy';tr.innerHTML='<th>'+r[0]+'</th><td>'+r[1]+'</td>';tb.appendChild(tr);
+  });
+  document.getElementById('form-turno').addEventListener('submit',function(e){
+    e.preventDefault();
+    var m=document.querySelector('input[name=motivo]:checked').value,n=document.getElementById('nombre').value.trim(),q=document.getElementById('quien').value,c=document.getElementById('cuando').value;
+    var msg='Hola Andrea! '+(n?'Soy '+n+'. ':'')+'Quiero pedir un turno '+q+' por '+m+', '+c+'. ¿Qué disponibilidad tenés?';
+    window.open('https://wa.me/5491130372448?text='+encodeURIComponent(msg),'_blank');
+  });
+})();
+</script>
+</body>
+</html>
